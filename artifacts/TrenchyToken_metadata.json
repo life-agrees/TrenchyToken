@@ -349,19 +349,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "hasInitialMintOccurred",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "name",
 				"outputs": [
 					{
@@ -514,6 +501,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "ERC-20 Token for TrenchyBet Prediction Market Total Supply: 1,000,000,000 TRENCHY (1 billion) Deployed on Base Network",
 			"errors": {
 				"ERC20InsufficientAllowance(address,uint256,uint256)": [
 					{
@@ -620,13 +608,10 @@
 					"details": "Destroys a `value` amount of tokens from `account`, deducting from the caller's allowance. See {ERC20-_burn} and {ERC20-allowance}. Requirements: - the caller must have allowance for ``accounts``'s tokens of at least `value`."
 				},
 				"constructor": {
-					"details": "Constructor that gives msg.sender all of existing tokens."
+					"details": "Constructor mints entire supply to deployer for controlled distribution"
 				},
 				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the default value returned by this function, unless it's overridden. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
-				},
-				"hasInitialMintOccurred()": {
-					"details": "Returns true if initial mint has occurred"
 				},
 				"name()": {
 					"details": "Returns the name of the token."
@@ -635,7 +620,7 @@
 					"details": "Returns the address of the current owner."
 				},
 				"pause()": {
-					"details": "Pauses all token transfers. Requirements: - the caller must be the owner."
+					"details": "Pauses all token transfers"
 				},
 				"paused()": {
 					"details": "Returns true if the contract is paused, and false otherwise."
@@ -659,20 +644,31 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				},
 				"unpause()": {
-					"details": "Unpauses all token transfers. Requirements: - the caller must be the owner."
+					"details": "Unpauses all token transfers"
 				}
 			},
+			"title": "TRENCHY Token",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"MAX_SUPPLY()": {
+					"notice": "Maximum supply: 1 billion tokens with 18 decimals"
+				},
+				"constructor": {
+					"notice": "All tokens minted at deployment - no future minting possible"
+				},
+				"pause()": {
+					"notice": "Emergency function - only callable by owner"
+				}
+			},
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"TrenchyToken.sol": "TrenchyToken"
+			"contracts/TrenchyToken.sol": "TrenchyToken"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -750,12 +746,12 @@
 				"dweb:/ipfs/QmQKVzSQY1PM3Bid4QhgVVZyx6B4Jx7XgaQzLKHj38vJz8"
 			]
 		},
-		"TrenchyToken.sol": {
-			"keccak256": "0x5b86a38c0302fc26b6059cd340a1c4b852fe41f2d56313a5e304ebb7504e0210",
+		"contracts/TrenchyToken.sol": {
+			"keccak256": "0x91593529f3e0f9270dc7b7e41dc37fe51785c833b6494b6a6a76978df0d8885a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bdfc8847ea482070af56d38ce6132b7f16c39e557798807b6b2919206b6ed57e",
-				"dweb:/ipfs/QmW3AAbasncAFFLTxJKzN4JF8pbAQm8txDjPu5GTCM2rA7"
+				"bzz-raw://c34cfd1d18e12e825428f9c2ae149833ab0723485f790f723eac4c09252a9e08",
+				"dweb:/ipfs/QmR47iagTJT2PyBT3K2PfurYJxoaRbXNy2QJwzh4sQSXEQ"
 			]
 		}
 	},

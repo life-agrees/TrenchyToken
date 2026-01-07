@@ -1,3 +1,4 @@
+
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
 
@@ -867,10 +868,14 @@ abstract contract Ownable is Context {
     }
 }
 
-// File: TrenchyToken.sol
+// File: contracts/TrenchyToken.sol
 
 
 pragma solidity ^0.8.20;
+
+
+
+
 
 /**
  * @title TRENCHY Token
@@ -878,41 +883,29 @@ pragma solidity ^0.8.20;
  * Total Supply: 1,000,000,000 TRENCHY (1 billion)
  * Deployed on Base Network
  */
-
-
-
-
-
 contract TrenchyToken is ERC20, ERC20Burnable, Pausable, Ownable {
     
-    // Maximum supply: 1 billion tokens with 18 decimals
+    /// @notice Maximum supply: 1 billion tokens with 18 decimals
     uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10**18;
     
-    // Flag to ensure minting can only happen once
-    bool private _hasInitialMintOccurred;
-    
     /**
-     * @dev Constructor that gives msg.sender all of existing tokens.
+     * @dev Constructor mints entire supply to deployer for controlled distribution
+     * @notice All tokens minted at deployment - no future minting possible
      */
     constructor() ERC20("Trenchy", "TRENCHY") Ownable(msg.sender) {
-        // Mint the entire supply to the deployer
         _mint(msg.sender, MAX_SUPPLY);
-        _hasInitialMintOccurred = true;
     }
     
     /**
-     * @dev Pauses all token transfers.
-     * Requirements:
-     * - the caller must be the owner.
+     * @dev Pauses all token transfers
+     * @notice Emergency function - only callable by owner
      */
     function pause() public onlyOwner {
         _pause();
     }
     
     /**
-     * @dev Unpauses all token transfers.
-     * Requirements:
-     * - the caller must be the owner.
+     * @dev Unpauses all token transfers
      */
     function unpause() public onlyOwner {
         _unpause();
@@ -920,7 +913,7 @@ contract TrenchyToken is ERC20, ERC20Burnable, Pausable, Ownable {
     
     /**
      * @dev Override _update to add pause functionality
-     * This is called on all transfers, mints, and burns
+     * @notice Called on all transfers, mints, and burns
      */
     function _update(
         address from,
@@ -928,12 +921,5 @@ contract TrenchyToken is ERC20, ERC20Burnable, Pausable, Ownable {
         uint256 value
     ) internal override whenNotPaused {
         super._update(from, to, value);
-    }
-    
-    /**
-     * @dev Returns true if initial mint has occurred
-     */
-    function hasInitialMintOccurred() public view returns (bool) {
-        return _hasInitialMintOccurred;
     }
 }
