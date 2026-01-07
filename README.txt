@@ -1,28 +1,52 @@
-REMIX DEFAULT WORKSPACE
+# TrenchyBet Token ($TRENCHY)
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+Official smart contract repository for TrenchyBet's ERC-20 token on Base network.
 
-This workspace contains 3 directories:
+## Contract Details
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+- **Token Name:** Trenchy
+- **Symbol:** TRENCHY
+- **Decimals:** 18
+- **Total Supply:** 1,000,000,000 (1 Billion, Fixed)
+- **Network:** Base Mainnet
+- **Contract Address:** `0x91Da6845Bd26292cacD4E70AbC9cEB3356970DeC`
+- **Basescan:** [View on Basescan](https://basescan.org/address/0x91Da6845Bd26292cacD4E70AbC9cEB3356970DeC)
 
-SCRIPTS
+## Token Features
 
-The 'scripts' folder has two typescript files which help to deploy the 'Storage' contract using 'ethers.js' libraries.
+- ✅ Fixed supply (no minting)
+- ✅ Burnable (deflationary)
+- ✅ Pausable (emergency stop)
+- ✅ Ownable (admin controls)
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts`
+## Tokenomics
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+- 10% - IDO/Public Sale
+- 15% - Liquidity Pool
+- 25% - Staking Rewards
+- 7% - Points Rewards
+- 12% - Team (vesting)
+- 3% - Advisors (vesting)
+- 17% - Treasury
+- 3% - Ecosystem Partnerships
+- 5.5% - Marketing
+- 2.5% - Airdrops
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+## Security
+
+- Smart contract audited by 
+- Verified source code on Basescan
+- Multi-sig wallet for treasury management
+
+## Links
+
+- Twitter: https://twitter.com/TrenchyBet
+
+## License
+
+MIT License
+```
+
+---
+
